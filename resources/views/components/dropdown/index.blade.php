@@ -1,6 +1,7 @@
 @props([
     'availableHeight' => null,
     'availableWidth' => null,
+    'flip' => true,
     'maxHeight' => null,
     'offset' => 8,
     'placement' => null,
@@ -48,7 +49,7 @@
     @if (! \Filament\Support\is_slot_empty($slot))
         <div
             x-cloak
-            x-float{{ $placement ? ".placement.{$placement}" : '' }}{{ $size ? '.size' : '' }}.flip{{ $shift ? '.shift' : '' }}{{ $teleport ? '.teleport' : '' }}{{ $offset ? '.offset' : '' }}="{ offset: {{ $offset }}, {{ $size ? ('size: ' . $sizeConfig) : '' }} }"
+            x-float{{ $placement ? ".placement.{$placement}" : '' }}{{ $size ? '.size' : '' }}{{ $flip ? '.flip' : '' }}{{ $shift ? '.shift' : '' }}{{ $teleport ? '.teleport' : '' }}{{ $offset ? '.offset' : '' }}="{ offset: {{ $offset }}, {{ $size ? ('size: ' . $sizeConfig) : '' }} }"
             x-ref="panel"
             x-transition:enter-start="opacity-0"
             x-transition:leave-end="opacity-0"
